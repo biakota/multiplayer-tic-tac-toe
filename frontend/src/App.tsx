@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 type Game = { room_code:string; board:(string|null)[][]; players:Record<string,string|null>; current_turn:string; status:string; winner:string|null; winning_line:number[][]|null; rematch_votes:string[]; disconnected:string[] };
-const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { API_URL } from "./config";
+const API = API_URL;
 const WS = API.replace(/^http/, "ws");
 const savedId = () => sessionStorage.getItem("ttt-player-id");
 
